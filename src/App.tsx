@@ -4,11 +4,7 @@ import Footer from "@/components/layout/Footer";
 import RepoForm from "@/components/readme/RepoForm";
 import ReadmePreview from "@/components/readme/ReadmePreview";
 import { useReadme } from "@/hooks/useReadme";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import "@/styles/global.css";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import "@/styles/readme.css";
 
 export default function App() {
