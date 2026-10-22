@@ -1,19 +1,59 @@
-import { Link } from "react-router-dom";
+
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import RepoForm from "@/components/readme/RepoForm";
+import ReadmePreview from "@/components/readme/ReadmePreview";
+import { useReadme } from "@/hooks/useReadme";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import "@/styles/global.css";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import "@/styles/readme.css";
 
 export default function App() {
+  const {
+    readme,
+    loading,
+    error,
+    loadReadme,
+    setError,
+  } = useReadme();
+
+  function handleSubmit(owner: string, repo: string) {
+    if (!owner || !repo) {
+      setError("Please enter a valid GitHub repository URL.");
+      return;
+    }
+
+    void loadReadme(owner, repo);
+  }
+
   return (
     <main className="app-shell">
+      <Header />
+
       <section className="hero">
-        <p className="eyebrow">CWAD React Template</p>
-        <h1>React + TypeScript + Vite</h1>
-        <p>
-          A professional foundation with routing, data fetching, validation,
-          testing, linting, formatting, and a scalable feature structure.
+        <p className="eyebrow">GITHUB README EXPORTER</p>
+
+        <h1>cwad-repo-to-pdf</h1>
+
+        <p className="hero-description">
+          Fetch a repository README, preview the documentation,
+          and export it as a PDF.
         </p>
-        <Link className="button" to="/health">
-          Open health check
-        </Link>
+
+        <RepoForm
+          loading={loading}
+          error={error}
+          onSubmit={handleSubmit}
+          onClearError={() => setError("")}
+        />
       </section>
+
+      <ReadmePreview readme={readme} />
+
+      <Footer />
     </main>
   );
 }
