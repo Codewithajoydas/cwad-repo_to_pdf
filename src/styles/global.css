@@ -346,3 +346,194 @@ input:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* App layout */
+.app-shell {
+  width: 100%;
+  max-width: 1120px;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  color: #111827;
+  background: #ffffff;
+  transition: background-color 150ms ease;
+}
+
+/* Hero section */
+.hero {
+  width: 100%;
+  max-width: 760px;
+  margin: 64px auto 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.hero-description {
+  max-width: 580px;
+  margin: 18px auto 28px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Markdown file upload */
+.file-upload {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  background: #fafafa;
+  text-align: center;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.file-upload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.file-upload-button:hover {
+  border-color: #9ca3af;
+  background: #f3f4f6;
+}
+
+.file-upload-button:focus-visible,
+.selected-file button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.file-upload-hint {
+  margin: 12px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.selected-file span {
+  min-width: 0;
+  color: #374151;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.selected-file button {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #b91c1c;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.selected-file button:hover {
+  background: #fef2f2;
+}
+
+.file-error {
+  margin: 12px 0 0;
+  color: #b91c1c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Active drag-and-drop state */
+.app-shell.is-dragging {
+  background: #f9fafb;
+}
+
+.app-shell.is-dragging .file-upload {
+  border-color: #111827;
+  background: #f3f4f6;
+}
+
+/* Footer placement */
+.app-shell > .footer {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Responsive layout */
+@media (max-width: 640px) {
+  .app-shell {
+    padding-inline: 16px;
+  }
+
+  .hero {
+    margin-top: 44px;
+    margin-bottom: 32px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .file-upload {
+    padding: 20px 14px;
+  }
+
+  .selected-file {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell,
+  .file-upload,
+  .file-upload-button {
+    transition: none;
+  }
+}
