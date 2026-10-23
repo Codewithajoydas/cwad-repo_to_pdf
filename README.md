@@ -2,7 +2,7 @@
 
 **Convert GitHub repository documentation and local Markdown files into clean, printable PDF documents.**
 
-[Live Demo](https://cwad-repo-to-pdf.vercel.app/) · [GitHub Repository](https://github.com/Codewithajoydas/cwad-repo_to_pdf) · [Report an Issue](https://github.com/Codewithajoydas/cwad-repo_to_pdf/issues)
+[Live Demo](https://cwad-repo-to-pdf.codewithajoydas.in/) · [GitHub Repository](https://github.com/Codewithajoydas/cwad-repo_to_pdf) · [Report an Issue](https://github.com/Codewithajoydas/cwad-repo_to_pdf/issues)
 
 ---
 
