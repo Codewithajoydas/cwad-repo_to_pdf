@@ -33,26 +33,31 @@ export default function ReadmePreview({
     }
   }
 
-  async function handleExportPdf() {
-    if (!readme || !previewRef.current) return;
+ async function handleExportPdf() {
+  if (!readme) return;
 
-    setExporting(true);
-    setPdfError("");
-
-    try {
-      const filename = `${readme.repository.replace(
-        /[^a-z0-9_-]/gi,
-        "-"
-      )}-README.pdf`;
-
-      await createPdf(previewRef.current, filename);
-    } catch (error) {
-      console.error("PDF generation failed:", error);
-      setPdfError("Unable to generate PDF. Please try again.");
-    } finally {
-      setExporting(false);
-    }
+  if (!previewRef.current) {
+    setPdfError("Switch to Preview before exporting the PDF.");
+    return;
   }
+
+  setExporting(true);
+  setPdfError("");
+
+  try {
+    const filename = `${readme.repository.replace(
+      /[^a-z0-9_-]/gi,
+      "-"
+    )}-README.pdf`;
+
+    await createPdf(previewRef.current, filename);
+  } catch (error) {
+    console.error("PDF generation failed:", error);
+    setPdfError("Unable to generate PDF. Please try again.");
+  } finally {
+    setExporting(false);
+  }
+}
 
   return (
     <section className="workspace">

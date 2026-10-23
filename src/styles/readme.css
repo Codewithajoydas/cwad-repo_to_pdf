@@ -1,3 +1,4 @@
+
 /* README viewer and Markdown source panel */
 
 .document,
@@ -72,9 +73,14 @@
   color: #222;
 }
 
+/* Rendered Markdown */
+
 .markdown-body {
+  box-sizing: border-box;
   min-width: 0;
+  width: 100%;
   padding: 30px;
+  background: #fff;
   color: #333;
   font-size: 14px;
   line-height: 1.75;
@@ -155,8 +161,9 @@
 }
 
 .markdown-body pre {
+  box-sizing: border-box;
   max-width: 100%;
-  overflow: auto;
+  overflow-x: auto;
   padding: 15px;
   border: 1px solid #e5e5e5;
   border-radius: 5px;
@@ -250,7 +257,10 @@
   vertical-align: middle;
 }
 
+/* Markdown source panel */
+
 .markdown-source {
+  box-sizing: border-box;
   max-width: 100%;
   margin: 0;
   padding: 20px;
@@ -312,15 +322,31 @@
   overflow-wrap: anywhere;
 }
 
-/* PDF export: keep these rules scoped to the generated README content. */
+/* PDF pagination */
+
+.markdown-body {
+  height: auto;
+  max-height: none;
+  background-color: #fff;
+  color: #24292f;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
+  break-after: avoid;
   page-break-after: avoid;
-  break-after: avoid-page;
+}
+
+.markdown-body p,
+.markdown-body li {
+  orphans: 3;
+  widows: 3;
 }
 
 .markdown-body pre,
@@ -328,9 +354,11 @@
 .markdown-body img,
 .markdown-body table,
 .markdown-body tr {
-  page-break-inside: avoid;
   break-inside: avoid;
+  page-break-inside: avoid;
 }
+
+/* Responsive layout */
 
 @media (max-width: 600px) {
   .document-toolbar {
@@ -362,5 +390,31 @@
 
   .view-switch button {
     padding: 7px 8px;
+  }
+}
+
+/* Browser print layout */
+
+@media print {
+  .document-toolbar,
+  .workspace-header,
+  .preview-actions,
+  .view-switch {
+    display: none !important;
+  }
+
+  .document {
+    overflow: visible !important;
+    border: none;
+    border-radius: 0;
+  }
+
+  .markdown-body {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
   }
 }
