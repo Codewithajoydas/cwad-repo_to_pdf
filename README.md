@@ -121,7 +121,7 @@ The application provides a straightforward interface for the conversion process.
 
 ### Method 1: Convert a GitHub README
 
-1. Open the [CWAD Repo to PDF application](https://cwad-repo-to-pdf.vercel.app/).
+1. Open the [CWAD Repo to PDF application](https://cwad-repo-to-pdf.codewithajoydas.in/).
 2. Select the GitHub repository input option.
 3. Enter the URL of a public GitHub repository.
 4. Click **Generate README**.
