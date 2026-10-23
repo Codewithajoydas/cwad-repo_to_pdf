@@ -213,7 +213,7 @@ function safeFilename(value: string): string {
 
 function buildSampleReadme(): ReadmeData {
   return { repository: "sample-project",
-    // eslint-disable-next-line max-len, @typescript-eslint/ban-ts-comment
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
      defaultBranch: "main",
       markdown: SAMPLE_MARKDOWN };
@@ -306,7 +306,7 @@ export default function App() {
       title: data.repository,
       repository: data.repository,
       markdown: data.markdown,
-      // eslint-disable-next-line max-len, @typescript-eslint/ban-ts-comment
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       defaultBranch: data.defaultBranch,
       source,
@@ -369,7 +369,7 @@ export default function App() {
         const data: ReadmeData = {
           markdown,
           repository: file.name.replace(/\.(md|markdown)$/i, ""),
-           // eslint-disable-next-line max-len, @typescript-eslint/ban-ts-comment
+           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
           defaultBranch: "main",
         };
@@ -468,7 +468,7 @@ export default function App() {
     const data: ReadmeData = {
       markdown: entry.markdown,
       repository: entry.repository,
-       // eslint-disable-next-line max-len, @typescript-eslint/ban-ts-comment
+       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       defaultBranch: entry.defaultBranch ?? "main",
     };
@@ -603,7 +603,7 @@ export default function App() {
     if (!activeReadme) return "";
     try {
       return renderMarkdown(activeMarkdown, activeReadme.repository, 
-         // eslint-disable-next-line max-len, @typescript-eslint/ban-ts-comment
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
         activeReadme.defaultBranch);
     } catch (error) {
@@ -616,7 +616,7 @@ export default function App() {
     if (!searchTerm.trim() || view !== "preview") return renderedHtml;
     const escaped = searchTerm.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(`(${escaped})`, "gi");
-    return renderedHtml.replace(/(<[^>]+>)|([^<]+)/g, (whole, tag, text) => {
+    return renderedHtml.replace(/(<[^>]+>)|([^<]+)/g, (tag, text) => {
       if (tag) return tag;
       return String(text).replace(regex, '<mark class="appx-search-mark">$1</mark>');
     });
